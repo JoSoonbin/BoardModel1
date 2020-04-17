@@ -7,7 +7,7 @@
 <title>게시글 작성폼</title>
 </head>
 <body>
-	<form action="index.jsp" method="post" onsubmit="return formCheck();">
+	<form action="insert.jsp" method="post" onsubmit="return formCheck();">
 		제목 : <input type="text" name="title" /><br /> 
 		작성자 : <input type="text" name="writer" /><br /> 
 		날짜 : <input type="text" name="regdate" /><br /> 
