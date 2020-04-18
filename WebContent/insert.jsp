@@ -49,15 +49,17 @@
 		Statement stmt = con.createStatement();  // SQL 쿼리를 날리기 위한 Statement 객체 생성
 		String sql = "INSERT INTO board" + 
 						"(idx, title, writer, regdate, count, content)" + 
-						"VALUES (" + 1 +", '" + title + "', '" + writer + "', '" + regdate + "', '1', '" + content + "')";
+						"VALUES ( board_seq.nextval, '" + title + "', '" + writer + "', sysdate, " + count + " , '" + content + "')";
 		stmt.executeUpdate(sql);  // 쿼리 실행
 		
 		
 		con.close();
-	} catch(Exception e){
+	} catch(Exception e) {
 		out.println("Oracle 데이터베이스 db 접속에 문제가 있습니다. <hr>");
 		out.println(e.getMessage());
 		e.printStackTrace();
+	} finally {
+		out.print("<script>location.href='index.jsp';</script>");  // location.href : 현재 경로를 변경
 	}
 %>
 <body>
