@@ -73,8 +73,8 @@
 	<%
 		while(rs.next()){
 			out.print("<tr>");
-			out.print("<td>" + rs.getString(1) + "</td>");
-			out.print("<td>" + rs.getString(2) + "</td>");
+			out.print("<td>" + rs.getString("idx") + "</td>");
+			out.print("<td> <a href='content.jsp?idx=" + rs.getString("idx") + "'>" + rs.getString(2) + "</a></td>");
 			out.print("<td>" + rs.getString(3) + "</td>");
 			out.print("<td>" + rs.getString(4) + "</td>");
 			out.print("<td>" + rs.getString(5) + "</td>");
