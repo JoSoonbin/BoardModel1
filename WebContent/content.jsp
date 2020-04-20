@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@page import="java.util.regex.Pattern" %>
-<%@page import="java.sql.*" %>
+	pageEncoding="UTF-8"%>
+<%@page import="java.util.regex.Pattern"%>
+<%@page import="java.sql.*"%>
 
 <!DOCTYPE html>
 <html>
@@ -26,41 +26,45 @@
 		rs = stme.executeQuery(sql);
 		
 		while(rs.next()) {
-%>
-
-<body>
-	<h1>게시글 조회</h1>
-	<table border = "1">
-		<tr>
-			<th>번호</th>
-			<td><%=rs.getString("idx") %></td>
-			<th>작성자</th>
-			<td><%=rs.getString("writer") %></td>
-			<th>날짜</th>
-			<td><%=rs.getString("regdate") %></td>
-			<th>조회수</th>
-			<td><%=rs.getString("count") %></td>
-		</tr>
-		<tr>
-			<th clospan="2">제목</th>
-			<td colspan="6"><%=rs.getString("title") %></td>
-		</tr>
-		<tr>
-			<th colspan="2">내용</th>
-			<td colspan="6"><%=rs.getString("content") %></td>
-		</tr>
-	</table>
-	<a href="delete.jsp?idx=<%=rs.getString("idx") %>">게시글 삭제</a>
-	<a href="index.jsp">목록으로</a>
-
-<%
+			request.setAttribute("idx", rs.getString("idx"));
+			request.setAttribute("writer", rs.getString("writer"));
+			request.setAttribute("regdate", rs.getString("regdate"));
+			request.setAttribute("count", rs.getString("count"));
+			request.setAttribute("title", rs.getString("title"));
+			request.setAttribute("content", rs.getString("content"));
 		}
 		con.close();
-	}catch(Exception e) {
+	} catch(Exception e) {
 		out.println("Oracle Database Conncetion Something Problem. <hr>");
 		out.println(e.getMessage());
 		e.printStackTrace();
 	}
+			
 %>
+
+<body>
+	<h1>게시글 조회</h1>
+	<table border="1">
+		<tr>
+			<th>번호</th>
+			<td>${idx }</td>
+			<th>작성자</th>
+			<td>${writer }</td>
+			<th>날짜</th>
+			<td>${regdate }</td>
+			<th>조회수</th>
+			<td>${count }</td>
+		</tr>
+		<tr>
+			<th clospan="2">제목</th>
+			<td colspan="6">${title }</td>
+		</tr>
+		<tr>
+			<th colspan="2">내용</th>
+			<td colspan="6">${content }</td>
+		</tr>
+	</table>
+	<a href="delete.jsp?idx=${idx }">게시글 삭제</a>
+	<a href="index.jsp">목록으로</a>
 </body>
 </html>
