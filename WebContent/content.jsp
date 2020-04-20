@@ -50,7 +50,7 @@
 			<td colspan="6"><%=rs.getString("content") %></td>
 		</tr>
 	</table>
-	<a href="delete.jsp?idx<%=rs.getString("idx") %>">게시글 삭제</a>
+	<a href="delete.jsp?idx=<%=rs.getString("idx") %>">게시글 삭제</a>
 	<a href="index.jsp">목록으로</a>
 
 <%

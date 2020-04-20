@@ -20,7 +20,7 @@
 		out.println("Oracle Database Connection Success.");
 		
 		Statement stmt = con.createStatement();
-		String sql = "delete from board where idx=" + idx;
+		String sql = "delete from board where idx="+idx;
 		stmt.executeUpdate(sql);
 		con.close();
 	} catch(Exception e) {
