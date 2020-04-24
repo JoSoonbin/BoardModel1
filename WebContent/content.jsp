@@ -65,6 +65,6 @@
 		</tr>
 	</table>
 	<a href="delete.jsp?idx=${idx }">게시글 삭제</a>
-	<a href="index.jsp">목록으로</a>
+	<a href="list.jsp">목록으로</a>
 </body>
 </html>

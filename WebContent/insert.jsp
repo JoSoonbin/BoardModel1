@@ -59,7 +59,7 @@
 		out.println(e.getMessage());
 		e.printStackTrace();
 	} finally {
-		out.print("<script>location.href='index.jsp';</script>");  // location.href : 현재 경로를 변경
+		out.print("<script>location.href='list.jsp';</script>");  // location.href : 현재 경로를 변경
 	}
 %>
 <body>
